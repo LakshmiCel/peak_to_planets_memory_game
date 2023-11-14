@@ -1,0 +1,31 @@
+.card {
+	perspective: 1000px;
+	height: 140px;
+	width: 80%;
+}
+.main {
+	width: 80% !important;
+	margin: 0 auto !important;
+}
+.card.flip .front {
+	transform: rotateY(180deg);
+	visibility: hidden;
+}
+
+.card.flip .back {
+	transform: rotateY(0deg);
+	visibility: visible;
+}
+
+.front,
+.back {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	backface-visibility: hidden;
+	transition: transform 0.5s;
+}
+
+.back {
+	transform: rotateY(180deg);
+}
