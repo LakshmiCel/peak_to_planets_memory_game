@@ -125,7 +125,7 @@ function Game({ common }) {
 						date: '12-09-2001',
 					});
 					console.log(scores);
-					window.location.href = 'http://localhost:3000/gamel';
+					navigate('/gamel');
 				}}
 				style={{ margin: '10px' }}
 			>
