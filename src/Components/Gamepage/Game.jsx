@@ -41,7 +41,7 @@ function Game({ common }) {
 	useEffect(() => {
 		console.log(array);
 		const shuffled = array.sort(() => 0.5 - Math.random());
-		const selected = shuffled.slice(0, 2);
+		const selected = shuffled.slice(0, 5);
 		const finalImages = [...selected, ...selected].map((image) => ({
 			...image,
 			matched: false,
