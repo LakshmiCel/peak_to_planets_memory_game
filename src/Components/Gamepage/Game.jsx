@@ -8,6 +8,7 @@ import {
 	Modal,
 	Paper,
 } from '@mui/material';
+import { format } from 'date-fns';
 import './Game.css';
 import { useNavigate } from 'react-router-dom';
 import { scores } from '../Homepage/Home';
@@ -16,6 +17,7 @@ import mountain from '../../assets/M1.jpg';
 import { arraym, arrays } from './Gamearray';
 
 function Game({ common }) {
+	const [timer, setTimer] = useState(120);
 	const [selectedCards, setSelectedCards] = useState([]);
 	const [score, setScore] = useState(0);
 	const [shuffledImages, setShuffledImages] = useState([]);
@@ -26,6 +28,8 @@ function Game({ common }) {
 	const [incorrectClicks, setIncorrectClicks] = useState(0);
 	const navigate = useNavigate();
 	const array = common === mountain ? arraym : arrays;
+	const currentDate = new Date();
+	const time = format(currentDate, 'dd-MM-yy');
 
 	const handleClose = () => {
 		setShowResults(false);
@@ -50,6 +54,12 @@ function Game({ common }) {
 		setShuffledImages(finalShuffled);
 		setStartTime(new Date());
 	}, []);
+	useEffect(() => {
+		if (timer > 0) {
+			setTimeout(() => setTimer(timer - 1), 1000);
+		}
+		console.log(timer);
+	}, [timer]);
 
 	const handleCardClick = (id, index) => {
 		if (shuffledImages[index].matched) {
@@ -101,6 +111,7 @@ function Game({ common }) {
 	const calculateScore = () => {
 		const baseScore = score;
 		const penaltySubtraction = 1;
+		const timeTaken = calculateTimeTaken();
 
 		// Simple time bonus: Add 1 point for every second saved (up to a maximum of 100 seconds)
 		const timeBonus = Math.max(0, 100 - calculateTimeTaken());
@@ -110,7 +121,9 @@ function Game({ common }) {
 		// Apply penalties for incorrect clicks.
 		const penalty = penaltySubtraction * incorrectClicks;
 		calculatedScore = Math.max(0, calculatedScore - penalty);
-
+		if (timeTaken === 0) {
+			return 0;
+		}
 		return Math.round(calculatedScore);
 	};
 
@@ -120,9 +133,9 @@ function Game({ common }) {
 			<Button
 				onClick={() => {
 					scores.push({
-						username: 'user',
+						username: user[user.length - 1].name,
 						highScore: calculateScore(),
-						date: '12-09-2001',
+						date: time,
 					});
 					console.log(scores);
 					navigate('/gamel');
@@ -136,7 +149,7 @@ function Game({ common }) {
 					scores.push({
 						username: user[user.length - 1].name,
 						highScore: calculateScore(),
-						date: '12-09-2001',
+						date: time,
 					});
 					console.log(scores);
 					navigate('/game');
@@ -183,6 +196,24 @@ function Game({ common }) {
 					</Grid>
 				))}
 			</Grid>
+
+			{timer === 0 ? (
+				<Paper style={{ padding: 20 }}>
+					<Typography variant="h5">Game Over!</Typography>
+					<Typography variant="h6">Score: {calculateScore()}</Typography>
+					<Typography variant="h6">
+						Time taken: {calculateTimeTaken()} seconds
+					</Typography>
+					<Typography variant="h6">
+						Incorrect Moves: {incorrectClicks}
+					</Typography>
+					<Button onClick={handleClose} style={{ margin: '10px' }}>
+						Close
+					</Button>
+				</Paper>
+			) : (
+				''
+			)}
 
 			<Modal open={showResults} onClose={handleClose}>
 				<Paper style={{ padding: 20 }}>
