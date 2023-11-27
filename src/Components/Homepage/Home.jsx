@@ -60,7 +60,6 @@ function Home() {
 				? 'linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 1, 0.2))'
 				: 'linear-gradient(45deg, rgba(0,0,0, 0.2),rgba(0,0,0, 0.2))',
 		marginRight: '10px',
-		// Adjust spacing
 	};
 
 	return (

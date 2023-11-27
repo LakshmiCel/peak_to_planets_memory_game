@@ -1,5 +1,3 @@
-// themeReducer.js
-
 import { SET_THEME, TOGGLE_THEME } from './themeActions';
 
 const initialState = {

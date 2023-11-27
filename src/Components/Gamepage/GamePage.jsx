@@ -7,7 +7,6 @@ import LoginFinal from '../Loginpage/LoginFinal';
 
 function GamePage() {
 	// const handleSignIn = () => {
-	// 	// Add your authentication logic here if needed
 	// 	// For now, let's just navigate to the homepage after clicking the button
 	// 	navigate('/');
 	// };

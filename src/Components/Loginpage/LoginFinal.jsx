@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../Redux/userActions';
 import './LoginFinal.css';
-// Adjust the path as needed
 
 export default function LoginFinal() {
 	const dispatch = useDispatch();

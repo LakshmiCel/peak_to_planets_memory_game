@@ -2,7 +2,7 @@ import { Button, Paper, Typography } from '@mui/material';
 import { lazy } from 'react';
 
 const Modal = lazy(() => import('@mui/material/Modal'));
-// Define LazyLoadedModal outside of the Game component
+// Lazy loaded the modal so it can load only when required
 function ResModal({
 	open,
 	onClose,
