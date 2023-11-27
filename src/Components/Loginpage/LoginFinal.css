@@ -1,0 +1,19 @@
+/* LoginFinal.css */
+
+.hover-button {
+	background: linear-gradient(to right, #5d7fac, #f1dbce, #d4c1bc, #b1ada3);
+	background-size: 200% 100%;
+	background-position: 100% 0;
+	transition: background-position 2s ease-out;
+}
+
+.hover-button:hover {
+	background-position: 0 0;
+	animation: rainbow 2s linear forwards;
+}
+
+@keyframes rainbow {
+	to {
+		background-position: 200% 0;
+	}
+}

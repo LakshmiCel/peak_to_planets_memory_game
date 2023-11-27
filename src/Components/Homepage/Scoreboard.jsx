@@ -1,6 +1,8 @@
 import { Grid, Typography, Paper } from '@mui/material';
+import { useSelector } from 'react-redux';
 
-function Scoreboard({ scores, common, mountain }) {
+function Scoreboard({ scores }) {
+	const theme = useSelector((state) => state.theme.theme);
 	return (
 		<Grid container justifyContent="center" alignItems="center">
 			<Paper
@@ -10,7 +12,7 @@ function Scoreboard({ scores, common, mountain }) {
 					backgroundColor: 'transparent',
 					marginTop: '40px',
 					width: '80vw',
-					color: common === mountain ? 'black' : 'white',
+					color: theme === 'mountain' ? 'black' : 'white',
 					height: '70vh',
 					overflow: 'auto',
 				}}
