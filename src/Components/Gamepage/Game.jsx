@@ -1,22 +1,24 @@
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import {
 	Grid,
 	Card,
 	CardMedia,
 	Typography,
 	Button,
-	Modal,
 	Paper,
 } from '@mui/material';
 import { format } from 'date-fns';
+import { useDispatch, useSelector } from 'react-redux';
 import './Game.css';
 import { useNavigate } from 'react-router-dom';
 import { scores } from '../Homepage/Home';
-import { user } from '../Loginpage/LoginFinal';
+import space from '../../assets/S1.jpg';
 import mountain from '../../assets/M1.jpg';
 import { arraym, arrays } from './Gamearray';
+import ResModal from './ResModal';
+import { setScores } from '../../Redux/userActions';
 
-function Game({ common }) {
+function Game() {
 	const [timer, setTimer] = useState(120);
 	const [selectedCards, setSelectedCards] = useState([]);
 	const [score, setScore] = useState(0);
@@ -27,38 +29,32 @@ function Game({ common }) {
 	const [showResults, setShowResults] = useState(false);
 	const [incorrectClicks, setIncorrectClicks] = useState(0);
 	const navigate = useNavigate();
-	const array = common === mountain ? arraym : arrays;
+	const theme = useSelector((state) => state.theme.theme);
+	const dispatch = useDispatch();
 	const currentDate = new Date();
 	const time = format(currentDate, 'dd-MM-yy');
 
-	const handleClose = () => {
-		setShowResults(false);
-		// Add logic to reset the game if needed
-		// for now this will only show the results of the results
-		// e.g., setScore(0);
-		// setIncorrectClicks(0);
-		// setShuffledImages([]);
-		// setStartTime(null);
-		// setEndTime(null);
-	};
-
+	const user = useSelector((state) => state.user.user);
+	const scoreState = useSelector((state) => state.user.score);
+	const selectedArray = theme === 'mountain' ? arraym : arrays;
 	useEffect(() => {
-		console.log(array);
-		const shuffled = array.sort(() => 0.5 - Math.random());
+		console.log(scoreState);
+		const shuffled = selectedArray.sort(() => 0.5 - Math.random());
 		const selected = shuffled.slice(0, 5);
 		const finalImages = [...selected, ...selected].map((image) => ({
 			...image,
 			matched: false,
 		}));
 		const finalShuffled = finalImages.sort(() => 0.5 - Math.random());
+
 		setShuffledImages(finalShuffled);
 		setStartTime(new Date());
 	}, []);
+
 	useEffect(() => {
 		if (timer > 0) {
 			setTimeout(() => setTimer(timer - 1), 1000);
 		}
-		console.log(timer);
 	}, [timer]);
 
 	const handleCardClick = (id, index) => {
@@ -87,7 +83,6 @@ function Game({ common }) {
 				setTimeout(() => {
 					setSelectedCards([]);
 
-					// Check if the game is over
 					if (score + 1 === shuffledImages.length / 2) {
 						setEndTime(new Date());
 						setShowResults(true);
@@ -113,12 +108,10 @@ function Game({ common }) {
 		const penaltySubtraction = 1;
 		const timeTaken = calculateTimeTaken();
 
-		// Simple time bonus: Add 1 point for every second saved (up to a maximum of 100 seconds)
 		const timeBonus = Math.max(0, 100 - calculateTimeTaken());
 
 		let calculatedScore = baseScore + timeBonus;
 
-		// Apply penalties for incorrect clicks.
 		const penalty = penaltySubtraction * incorrectClicks;
 		calculatedScore = Math.max(0, calculatedScore - penalty);
 		if (timeTaken === 0) {
@@ -127,35 +120,24 @@ function Game({ common }) {
 		return Math.round(calculatedScore);
 	};
 
+	const handleClose = () => {
+		setShowResults(false);
+		dispatch(setScores(calculateScore()));
+		console.log(scoreState);
+		scores.push({
+			username: user.name,
+			highScore: calculateScore(),
+			date: time,
+		});
+		console.log(scoreState);
+		navigate('/game');
+	};
+
 	return (
 		<div>
 			<Typography variant="h4">Matched: {score}</Typography>
-			<Button
-				onClick={() => {
-					scores.push({
-						username: user[user.length - 1].name,
-						highScore: calculateScore(),
-						date: time,
-					});
-					console.log(scores);
-					navigate('/gamel');
-				}}
-				style={{ margin: '10px' }}
-			>
-				Restart
-			</Button>
-			<Button
-				onClick={() => {
-					scores.push({
-						username: user[user.length - 1].name,
-						highScore: calculateScore(),
-						date: time,
-					});
-					console.log(scores);
-					navigate('/game');
-				}}
-				style={{ margin: '10px' }}
-			>
+
+			<Button onClick={handleClose} style={{ margin: '10px' }}>
 				Quit
 			</Button>
 
@@ -181,7 +163,7 @@ function Game({ common }) {
 									component="img"
 									alt={image.id}
 									height="240"
-									image={common}
+									image={theme === 'mountain' ? mountain : space}
 								/>
 							</div>
 							<div className="back">
@@ -215,21 +197,15 @@ function Game({ common }) {
 				''
 			)}
 
-			<Modal open={showResults} onClose={handleClose}>
-				<Paper style={{ padding: 20 }}>
-					<Typography variant="h5">Game Over!</Typography>
-					<Typography variant="h6">Score: {calculateScore()}</Typography>
-					<Typography variant="h6">
-						Time taken: {calculateTimeTaken()} seconds
-					</Typography>
-					<Typography variant="h6">
-						Incorrect Moves: {incorrectClicks}
-					</Typography>
-					<Button onClick={handleClose} style={{ margin: '10px' }}>
-						Close
-					</Button>
-				</Paper>
-			</Modal>
+			<Suspense fallback={<div>Loading...</div>}>
+				<ResModal
+					open={showResults}
+					onClose={handleClose}
+					calculateScore={calculateScore}
+					calculateTimeTaken={calculateTimeTaken}
+					incorrectClicks={incorrectClicks}
+				/>
+			</Suspense>
 		</div>
 	);
 }
