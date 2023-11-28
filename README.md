@@ -1,3 +1,4 @@
+
 # PEAK TO PLANETS MEMORY GAME. 🗻🌆
  This is memory game which relies on theme .There are 2 themes
 -  **Mountain theme**  🏔️
@@ -55,6 +56,17 @@ There are two branches for the project
 ![currentScreenshot1701162431403](https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/82f75ccf-373b-403f-9560-598f4921d08e)
 
 ## Video
+
+https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/596dad12-fedd-4a67-b3ac-3193d882dd86
+
+https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/7da820ab-b7fa-4ff3-9a18-c0daea7d1fbf
+
+https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/0ad610fc-c09b-4120-864f-74477a21c2c3
+
+https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/69569ead-9f65-4299-9b79-45159acd9dde
+
+https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/7fddcb52-7486-4711-aff9-d2db42339a76
+
 
 
 ## Deployment
