@@ -22,62 +22,58 @@ export const arraym = [
 	},
 	{
 		id: 6,
-		url: 'https://media.istockphoto.com/id/1195458582/photo/aerial-view-of-misty-mountains-at-sunrise.jpg?s=612x612&w=0&k=20&c=UQ4ZHZk0H_c75Vy9Wv5VaXn00obvPT98LMTOvjXZOWc=',
-	},
-	{
-		id: 7,
 		url: 'https://media.istockphoto.com/id/1170655400/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=y5RoqH5GMJGTnWFmTpU1LSSzMypGHs42-0zRdnnlWNM=',
 	},
 	{
-		id: 8,
+		id: 7,
 		url: 'https://media.istockphoto.com/id/1094629964/photo/lake-in%C2%A0zelenci-springs-upper%C2%A0carniola-slovenia.jpg?s=612x612&w=0&k=20&c=qQUIvnp0EWAIaFGusnbWRgZd-qAZlAk5l0iN-IDzgVk=',
 	},
 	{
-		id: 9,
+		id: 8,
 		url: 'https://media.istockphoto.com/id/157481286/photo/ice-mountain.jpg?s=612x612&w=0&k=20&c=c-HOTprUTT-986YLykIbnZGeFSEI1XwYJMqPacFdmsU=',
 	},
 	{
-		id: 10,
+		id: 9,
 		url: 'https://media.istockphoto.com/id/1130739032/photo/areuse-river-in-the-neuch%C3%A2tel-jura-switzerland-panorama.jpg?s=612x612&w=0&k=20&c=zqxvpzPI04Py_cS2a7BjJSP0RVSgclZne4RrHOZfPzU=',
 	},
 	{
-		id: 11,
+		id: 10,
 		url: 'https://media.istockphoto.com/id/1356755215/photo/asphalt-road-and-mountain-natural-scenery.jpg?s=612x612&w=0&k=20&c=LfCwdMgo2tqovk2d7Uo9cxzGI9ucWgoG7TekPsQuaz4=',
 	},
 	{
-		id: 12,
+		id: 11,
 		url: 'https://media.istockphoto.com/id/1161350279/photo/fairy-pools-glen-brittle-isle-of-skye-scotland-uk.jpg?s=612x612&w=0&k=20&c=4Bt6E4pfHUbweMa4xSLMXr87JLFDZD08G6jbBLgVVfI=',
 	},
 	{
-		id: 13,
+		id: 12,
 		url: 'https://media.istockphoto.com/id/1317149056/photo/aerial-view-of-mountain-forests-with-brilliant-fall-colors-in-autumn-at-sunrise-new-england.jpg?s=612x612&w=0&k=20&c=RpZEeWDjuqGTsBiK-NOi0mUhhSMr9at8M32SyZ3Rm-w=',
 	},
 	{
-		id: 14,
+		id: 13,
 		url: 'https://media.istockphoto.com/id/920188714/photo/cloud-and-mountain-landscape.jpg?s=612x612&w=0&k=20&c=X_VAG_BapL51ae2hykop2RXiYtfVVyxEnIKZ5jEnGWg=',
 	},
 	{
-		id: 15,
+		id: 14,
 		url: 'https://media.istockphoto.com/id/488870098/photo/on-the-top-of-the-world-together.jpg?s=612x612&w=0&k=20&c=eGFmcqBodcgvh3Cvl2TyEpN15O-2K0oBoOfqBtG1HK4=',
 	},
 	{
-		id: 16,
+		id: 15,
 		url: 'https://media.istockphoto.com/id/1142558680/photo/asphalt-race-track-ground-and-mountain-with-sunset-clouds.jpg?s=612x612&w=0&k=20&c=uNR3-PUKevmKnc0lDvMP4NbyD0JlYxSXriWrOl4W7sU=',
 	},
 	{
-		id: 17,
+		id: 16,
 		url: 'https://media.istockphoto.com/id/1176527951/photo/mesa-arch-sunrise.jpg?s=612x612&w=0&k=20&c=ahv4Ep8U7_FM_nk04-cU5rx7XG4W6eOYz8chaj5TJeE=',
 	},
 	{
-		id: 18,
+		id: 17,
 		url: 'https://media.istockphoto.com/id/1272710320/photo/empty-dirt-beach-with-traces-against-canadian-rockies.jpg?s=612x612&w=0&k=20&c=sUQjQp9L95k8mWJMvQA4saqoTIB30h2VmlXVkjDwfAQ=',
 	},
 	{
-		id: 19,
+		id: 18,
 		url: 'https://media.istockphoto.com/id/1060394522/photo/panorama-of-winter-mountains-in-caucasus-region-elbrus-mountain.jpg?s=612x612&w=0&k=20&c=fsJEEsTp_OvnVgARP0AkQgMzOlrVyIanT37hdl7NXx8=',
 	},
 	{
-		id: 20,
+		id: 19,
 		url: 'https://media.istockphoto.com/id/1195269956/photo/slow-moving-clouds-over-the-pine-forest-in-the-german-alps.jpg?s=612x612&w=0&k=20&c=mKU5afIOi5vt2BzhmtL2EGSGUjnyeOVDb4a5fybc8BY=',
 	},
 ];

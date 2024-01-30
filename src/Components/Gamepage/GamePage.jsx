@@ -1,28 +1,25 @@
-import { Grid, Button } from '@mui/material';
-import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { Grid, Typography } from '@mui/material';
+// import { motion } from 'framer-motion';
+// import { useNavigate } from 'react-router-dom';
 import img1 from '../../assets/M2.jpg';
 import img2 from '../../assets/mc1.jpg';
 import LoginFinal from '../Loginpage/LoginFinal';
 
 function GamePage() {
-	const navigate = useNavigate();
+	// const handleSignIn = () => {
+	// 	// For now, let's just navigate to the homepage after clicking the button
+	// 	navigate('/');
+	// };
 
-	const handleSignIn = () => {
-		// Add your authentication logic here if needed
-		// For now, let's just navigate to the homepage after clicking the button
-		navigate('/');
-	};
-
-	const buttonVariants = {
-		hover: {
-			scale: 1.1,
-			transition: {
-				duration: 0.3,
-				yoyo: Infinity,
-			},
-		},
-	};
+	// const buttonVariants = {
+	// 	hover: {
+	// 		scale: 1.1,
+	// 		transition: {
+	// 			duration: 0.3,
+	// 			yoyo: Infinity,
+	// 		},
+	// 	},
+	// };
 
 	return (
 		<div>
@@ -62,34 +59,25 @@ function GamePage() {
 				container
 				style={{
 					position: 'absolute',
-					top: '50%',
-					left: '50%',
+					top: '45%',
+					left: '52%',
 					transform: 'translate(-50%, -50%)',
-					width: '30vh',
+					width: '40vh',
 					height: '20vh',
 					zIndex: 1,
+					textAlign: 'center',
 				}}
 			>
-				<Grid item xs={12} style={{ marginTop: '20px' }}>
-					<motion.div
-						variants={buttonVariants}
-						whileHover="hover"
-						transition={{ duration: 0.3 }}
+				<Grid item xs={12} style={{ marginTop: '20px', padding: '2px' }}>
+					<Typography
+						variant="h5"
+						sx={{ backgroundColor: 'rgba(255,255,255,0.5)' }}
 					>
-						<Button
-							variant="contained"
-							color="primary"
-							onClick={handleSignIn}
-							style={{
-								background: 'linear-gradient(45deg, #00c9ff, #92fe9d)',
-								boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
-								textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)',
-							}}
-						>
-							<LoginFinal />
-							{/* this is google 0 auth login */}
-						</Button>
-					</motion.div>
+						Play with NO LIMITS. <br />
+						Ready SET SIGN UP
+					</Typography>
+					<LoginFinal />
+					{/* this is google 0 auth login */}
 				</Grid>
 			</Grid>
 		</div>

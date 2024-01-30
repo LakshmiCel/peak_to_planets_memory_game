@@ -20,7 +20,12 @@
 		"react/jsx-key": 1,
 		"react/no-array-index-key": 1,
 		"react/react-in-jsx-scope": "off",
-		"react/jsx-uses-react": "off"
+		"react/jsx-uses-react": "off",
+		"react/no-unescaped-entities": "off", // Ignore 'react/no-unescaped-entities' rule
+		"default-param-last": "off", // Ignore 'default-param-last' rule
+		"react/no-case-declarations": "off",
+		"no-extra-boolean-cast": "off",
+		"import/no-extraneous-dependencies": "off"
 	},
 	"settings": {
 		"react": {

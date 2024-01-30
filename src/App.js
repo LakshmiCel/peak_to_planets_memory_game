@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
 import GamePage from './Components/Gamepage/GamePage';
 import Game from './Components/Gamepage/Game';
 import mountain from './assets/M1.jpg';
@@ -8,7 +9,7 @@ import LoginFinal from './Components/Loginpage/LoginFinal';
 
 function App() {
 	const [common, setCommon] = useState(mountain);
-
+	// const user = useSelector((state) => state.user.user);
 	return (
 		<Router>
 			<Routes>

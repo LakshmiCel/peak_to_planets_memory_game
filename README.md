@@ -1,3 +1,69 @@
+# PEAK TO PLANETS MEMORY GAME. 🗻🌆
+
+This is memory game which relies on theme .There are 2 themes
+
+- **Mountain theme** 🏔️
+- **Space theme** 🌃
+  <br>
+
+## Game rules. 🎮
+
+**RULE 1:** You have to match 2 🎴🎴 similar cards by clicking on the cards.
+
+**RULE 2.** Make sure you complete the matching of cards within 2 minutes.⏲️
+
+**RULE 3.** If all the cards are matched then the score will display.If you want to quit in the middle of matching then the score will be 0️⃣.
+
+**RULE 4.** Maximum score will be 💯 .Score gets calculated based on incorrect move 🙅‍♀️ and time left after matching all the cards.
+
+You can check the matched cards count on top of the game.
+
+<br>
+
+## Branch
+
+There are two branches for the project
+
+- Master branch
+- Main branch
+
+  <ins>MASTER branch</ins>: This branch contains implementation using **React** , **MUI** , **React Router**.
+
+  <ins>MAIN branch </ins>: This branch contains implementation using **React** , **MUI** , **React Router** , **Redux** , **React Redux**.
+
+<br>
+
+## Screenshot
+
+Landing Page
+![currentScreenshot1701156713430](https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/f718271b-00ea-49e9-b11b-33b01af19852)
+
+Authentication <br>
+![image](https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/aeb71663-d8df-4212-936f-7dccba4b8650)
+
+Home Page [Mountain Theme]
+![currentScreenshot1701157405995](https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/fa25286f-be5b-47b5-91ad-045d038d9920)
+
+Home Page [Space Theme]
+![currentScreenshot1701157429580](https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/b00ac135-9705-44ee-9e76-1b2dff84efb0)
+
+Game Page [Mountain Theme]
+![currentScreenshot1701163233518](https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/aba06cae-e40c-4403-9b6e-67f761b43a63)
+
+Game Page [Space Theme]
+![currentScreenshot1701163259756](https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/dcc6c1d7-2b31-4347-9e0e-ddf0eea138dc)
+
+Result of the game
+![image](https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/505c7d23-9c8a-41d9-98ee-6985a7f85815)
+![currentScreenshot1701162842808](https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/95963bf7-48aa-42ec-ace0-7784e3822d96)
+![currentScreenshot1701162431403](https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/82f75ccf-373b-403f-9560-598f4921d08e)
+
+## Video
+
+## Deployment
+
+[🔗Click on the link ](https://peak-to-planets-memory-game-poao.vercel.app/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

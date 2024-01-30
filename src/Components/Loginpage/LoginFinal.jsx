@@ -2,29 +2,23 @@ import { Button, Grid } from '@mui/material';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
-// import { jwtDecode } from 'jwt-decode';
-export const user = [];
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../Redux/userActions';
+import './LoginFinal.css';
 
 export default function LoginFinal() {
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	// const handlelogin=(res)=>{
-	//     // console.log(typeof(res))
-	//     console.log(res)
-	//     // console.log(JSON.stringify(response));
-	// }
+
 	return (
 		<div>
 			<Grid>
-				<Button variant="contain">
+				<Button className="hover-button" variant="contained">
 					<GoogleLogin
 						onSuccess={(res) => {
-							console.log(res);
 							const response = jwtDecode(res.credential);
-							console.log(JSON.stringify(response.name));
-							console.log(response);
+							dispatch(setUser(response)); // Dispatch action to set user in Redux
 							navigate('./game');
-							user.push(response);
-							console.log(user);
 						}}
 						onError={() => console.log('failed')}
 					/>
