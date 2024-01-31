@@ -13,22 +13,38 @@ function Scoreboard() {
 				const res = await axios.get('http://localhost:5000/users');
 				// console.log(res.data);
 				setDetails(res.data);
+				// fetch('http://localhost:5000/users', {
+				// 	mode: 'cors',
+				// {
+				// 	headers: {
+				// 		'Access-Control-Allow-Origin': '*',
+				// 		'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+				// 		'Access-Control-Allow-Headers':
+				// 			'Origin, X-Requested-With, Content-Type, Accept',
+				// 	},
+				// 	'Access-Control-Allow-Origin': '*',
+				// })
+				// 	.then((response) => response.json())
+				// 	.then((data) => {
+				// 		setDetails(data);
+				// 	});
 			} catch (error) {
 				console.error('Error fetching data:', error);
 			}
 		};
 
 		getData();
-	}, []);
+	}, [details]);
 
 	return (
 		<Grid container justifyContent="center" alignItems="center">
 			{console.log(details)}
 			<Paper
-				elevation={3}
+				elevation={10}
 				style={{
 					padding: '20px',
-					backgroundColor: 'transparent',
+					backgroundColor:
+						theme === 'mountain' ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.2)',
 					marginTop: '40px',
 					width: '80vw',
 					color: theme === 'mountain' ? 'black' : 'white',

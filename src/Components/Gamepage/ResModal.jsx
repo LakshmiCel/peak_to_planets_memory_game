@@ -1,7 +1,5 @@
 import { Button, Paper, Typography } from '@mui/material';
-import { lazy } from 'react';
-
-const Modal = lazy(() => import('@mui/material/Modal'));
+import Modal from '@mui/material/Modal';
 // Define LazyLoadedModal outside of the Game component
 function ResModal({
 	open,
@@ -27,7 +25,7 @@ function ResModal({
 					Time taken: {calculateTimeTaken()} seconds
 				</Typography>
 				<Typography variant="h6">Incorrect Moves: {incorrectClicks}</Typography>
-				<Button onClick={onClose} style={{ margin: '10px' }}>
+				<Button onClick={() => onClose()} style={{ margin: '10px' }}>
 					Close
 				</Button>
 			</Paper>

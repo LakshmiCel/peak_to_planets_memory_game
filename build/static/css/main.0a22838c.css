@@ -1,0 +1,45 @@
+.hover-button {
+	background: linear-gradient(90deg, #5d7fac, #f1dbce, #d4c1bc, #b1ada3);
+	background-position: 100% 0;
+	background-size: 200% 100%;
+	transition: background-position 2s ease-out;
+}
+.hover-button:hover {
+	animation: rainbow 2s linear forwards;
+	background-position: 0 0;
+}
+@keyframes rainbow {
+	to {
+		background-position: 200% 0;
+	}
+}
+.card {
+	height: 140px;
+	perspective: 1000px;
+	width: 80%;
+}
+.main {
+	margin: 0 auto !important;
+	width: 80% !important;
+}
+.card.flip .front {
+	transform: rotateY(180deg);
+	visibility: hidden;
+}
+.card.flip .back {
+	transform: rotateY(0deg);
+	visibility: visible;
+}
+.back,
+.front {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	height: 100%;
+	position: absolute;
+	transition: transform 0.5s;
+	width: 100%;
+}
+.back {
+	transform: rotateY(180deg);
+}
+/*# sourceMappingURL=main.0a22838c.css.map*/

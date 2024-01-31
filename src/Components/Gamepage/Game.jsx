@@ -12,7 +12,7 @@ import { format } from 'date-fns';
 import { useDispatch, useSelector } from 'react-redux';
 import './Game.css';
 import { useNavigate } from 'react-router-dom';
-import space from '../../assets/S1.jpg';
+import space from '../../assets/space1.png';
 import mountain from '../../assets/M1.jpg';
 import { arraym, arrays } from './Gamearray';
 import ResModal from './ResModal';
@@ -46,7 +46,6 @@ function Game() {
 			matched: false,
 		}));
 		const finalShuffled = finalImages.sort(() => 0.5 - Math.random());
-
 		setShuffledImages(finalShuffled);
 		setStartTime(new Date());
 	}, []);
@@ -89,7 +88,6 @@ function Game() {
 					}
 				}, 1000);
 			}
-
 			return updatedArray;
 		});
 	};
@@ -123,7 +121,6 @@ function Game() {
 	const handleClose = () => {
 		setShowResults(false);
 		dispatch(setScores(calculateScore()));
-		console.log(scoreState);
 		axios.post('http://localhost:5000/users', {
 			name: user.name,
 			high_score: calculateScore(),

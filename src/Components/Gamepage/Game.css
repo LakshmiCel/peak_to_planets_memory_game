@@ -3,10 +3,12 @@
 	height: 140px;
 	width: 80%;
 }
+
 .main {
 	width: 80% !important;
 	margin: 0 auto !important;
 }
+
 .card.flip .front {
 	transform: rotateY(180deg);
 	visibility: hidden;

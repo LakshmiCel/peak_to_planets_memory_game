@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import {
 	Button,
 	Box,
@@ -10,46 +9,38 @@ import {
 	Paper,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ToggleButton from './ToggleButton';
-import { setTheme } from '../../Redux/themeActions';
 import mountain from '../../assets/M1.jpg';
-import space from '../../assets/S1.jpg';
+import space from '../../assets/space1.png';
 import Scoreboard from './Scoreboard';
 
 // Dummy data to display
 
 function Home() {
-	const dispatch = useDispatch();
 	const user = useSelector((state) => state.user.user);
 	const theme = useSelector((state) => state.theme.theme);
 
-	const containerStyle = useMemo(
-		() => ({
-			backgroundImage: `url(${theme === 'mountain' ? mountain : space})`,
-			backgroundSize: 'cover',
-			height: 'auto',
-			width: '100%',
-			color: theme === 'mountain' ? 'black' : 'white',
-			overflow: 'hidden',
-		}),
-		[theme]
-	);
+	const containerStyle = {
+		backdropFilter: 'blur(40px)',
+		backgroundImage: `url(${theme === 'mountain' ? mountain : space})`,
+		backgroundSize: 'cover',
+		height: 'auto',
+		width: '100%',
+		color: theme === 'mountain' ? 'black' : 'white',
+		overflow: 'hidden',
+	};
 
 	// const handleToggleTheme = () => {
 	// 	dispatch(toggleTheme());
 	// };
 
-	const appBarStyle = useMemo(
-		() => ({
-			backgroundImage: `url(${theme === 'mountain' ? mountain : space})`,
-			backgroundSize: 'cover',
+	const appBarStyle = {
+		backgroundImage: `url(${theme === 'mountain' ? mountain : space})`,
+		backgroundSize: 'cover',
 
-			boxShadow: '0px 3px 5px rgba(0, 0, 0, 0.2)',
-		}),
-		[theme]
-	);
-
+		boxShadow: '0px 3px 5px rgba(0, 0, 0, 0.2)',
+	};
 	const buttonStyle = {
 		// Text color#D5ECF4,#E4FEF9 ,#97F2D2 ,#07161D
 		background:
@@ -74,49 +65,49 @@ function Home() {
 			<Box sx={{ flexGrow: 1 }}>
 				<AppBar position="static" style={appBarStyle}>
 					<Toolbar>
-						<Typography
-							variant="h5"
-							color="inherit"
-							sx={{ fontSize:'2vw' }}
-						>
-							PEAK to PLANTES MEMORY GAME
-						</Typography>
-						<ToggleButton />
-						<Button
-							color="inherit"
-							onClick={() => dispatch(setTheme('mountain'))}
-						>
-							Mountain Theme
-						</Button>
-						<Button color="inherit" onClick={() => dispatch(setTheme('space'))}>
-							Space Theme
-						</Button>
-						<Button
-							color="inherit"
-							component={Link}
-							to="/gamel"
-							style={buttonStyle}
-						>
-							<Typography>Play Game</Typography>
-						</Button>
-						<Box
-							sx={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}
-						>
+						<Grid sx={{ display: 'flex', gap: 2 }}>
+							<Typography variant="h5" color="inherit" sx={{ fontSize: '2vw' }}>
+								PEAK to PLANTES MEMORY GAME
+							</Typography>
 							<Button
 								color="inherit"
 								component={Link}
-								to="/"
+								to={user ? '/gamel' : '/'}
 								style={buttonStyle}
 							>
-								Logout
+								<Typography>
+									{!!user ? 'Play Game' : 'Sign in by google to play game'}
+								</Typography>
 							</Button>
-							<Avatar
-								alt="user image"
-								src={user?.picture}
-								sx={{ marginLeft: '10px' }}
-							/>
-							<Typography sx={{ marginLeft: '10px' }}>{user?.name}</Typography>
-						</Box>
+						</Grid>
+						<Grid
+							sx={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}
+						>
+							<ToggleButton />
+
+							{user && (
+								<Button
+									color="inherit"
+									component={Link}
+									to="/"
+									style={buttonStyle}
+								>
+									Logout
+								</Button>
+							)}
+							{user && (
+								<>
+									<Avatar
+										alt="user image"
+										src={user?.picture}
+										sx={{ marginLeft: '10px' }}
+									/>
+									<Typography sx={{ marginLeft: '10px' }}>
+										{user?.name}
+									</Typography>
+								</>
+							)}
+						</Grid>
 					</Toolbar>
 				</AppBar>
 			</Box>
@@ -139,11 +130,11 @@ function Home() {
 					position: 'relative',
 					marginTop: '4%',
 					marginLeft: '5%',
-					width: 'max-content',
-					height: 'min-content',
+					width: '80vw',
+					height: 'fit-content',
 					backgroundColor: 'transparent',
 					padding: '3%',
-					color: theme === mountain ? 'black' : 'white',
+					color: theme === 'mountain' ? 'black' : 'white',
 				}}
 			>
 				<Typography variant="h5">Game Rules</Typography>
