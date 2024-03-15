@@ -54,8 +54,6 @@ There are two branches for the project
 ![currentScreenshot1701162842808](https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/95963bf7-48aa-42ec-ace0-7784e3822d96)
 ![currentScreenshot1701162431403](https://github.com/LakshmiCel/peak_to_planets_memory_game/assets/146925327/82f75ccf-373b-403f-9560-598f4921d08e)
 
-## Video
-
 
 ## Deployment
 [🔗Click on the link ](https://peak-to-planets-memory-game-poao.vercel.app/)
